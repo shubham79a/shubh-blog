@@ -92,7 +92,7 @@ export default function Home() {
 
 
 
-      
+
       <section className="py-10 bg-white dark:bg-gray-800">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4">Testimonials</h2>
@@ -118,6 +118,44 @@ export default function Home() {
         </div>
       </section>
 
+
+
+      <section className="py-12 bg-gray-100 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200">Top Blogs</h2>
+            <p className="mt-4 text-lg text-gray-500 dark:text-gray-400">
+              Explore our most popular blog posts that our readers love!
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+              <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Blog Post 1" className="rounded-t-lg w-full h-48 object-cover" />
+              <div className="p-3">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">Blog Title 1</h3>
+                <p className="text-gray-500 dark:text-gray-400">A brief description of the blog post goes here.</p>
+                <Button variant="outline" className="m-2">Read More</Button>
+              </div>
+            </div>
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+              <img src="path/to/image2.jpg" alt="Blog Post 2" className="rounded-t-lg w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">Blog Title 2</h3>
+                <p className="text-gray-500 dark:text-gray-400">A brief description of the blog post goes here.</p>
+                <Button variant="outline" className="m-2">Read More</Button>
+              </div>
+            </div>
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+              <img src="path/to/image3.jpg" alt="Blog Post 3" className="rounded-t-lg w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">Blog Title 3</h3>
+                <p className="text-gray-500 dark:text-gray-400">A brief description of the blog post goes here.</p>
+                <Button variant="outline" className="m-2">Read More</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

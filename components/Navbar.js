@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
-import { Menu } from 'lucide-react';
+import { Menu, MenuIcon, MenuSquare } from 'lucide-react';
 
 import { ModeToggle } from './theme-btn';
 
@@ -12,7 +12,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className=" p-4 bg-background/50 sticky top-0 backdrop-blur border-b">
+        <nav className=" p-4 bg-background/50 sticky top-0 backdrop-blur border-b z-10">
             <div className="container mx-auto flex justify-between items-center ">
                 <Link href="/"> <div className="text-lg font-bold">
                     ShubhBlog
@@ -36,10 +36,13 @@ const Navbar = () => {
                         <ModeToggle className="mx-1" />
                     </div>
                 </div>
-                <div className="md:hidden " >
+                <div className="md:hidden items-center " >
                     <Sheet>
+                        <span className='mx-2'>
+                            <ModeToggle />
+                        </span>
                         <SheetTrigger>
-                            <Menu />
+                            <MenuIcon className='pt-1' />
                         </SheetTrigger>
                         <SheetContent>
                             <SheetHeader>

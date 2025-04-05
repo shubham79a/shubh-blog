@@ -10,6 +10,13 @@ import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
+import rehypePrettyCode from "rehype-pretty-code";
+import { transformerCopyButton } from '@rehype-pretty/transformers';
+import OnThisPage from '@/components/onthispage';
+
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
+
 
 export default async function Page({ params }) {
 
@@ -40,6 +47,18 @@ export default async function Page({ params }) {
         .use(rehypeDocument, { title: '👋🌍' })
         .use(rehypeFormat)
         .use(rehypeStringify)
+        .use(rehypeSlug)
+        .use(rehypeAutolinkHeadings)
+        .use(rehypePrettyCode, {
+            // See Options section below.
+            theme: 'github-dark',
+            transformers: [
+                transformerCopyButton({
+                    visibility: 'always',
+                    feedbackDuration: 3_000,
+                })
+            ]
+        })
 
     const htmlContent = (await processor.process(content)).toString()
 
@@ -48,14 +67,14 @@ export default async function Page({ params }) {
     return (
         <div className="lg:max-w-6xl md:max-w-3xl  mx-auto p-4">
             <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
-            <p className="text-gray-600 text-base mb-2 border-l-4 border-gray-500 pl-4 italic ">&quot;By {blog.description}"</p>
+            <p className="text-gray-600 text-base mb-2 border-l-4 border-gray-500 pl-4 italic ">&quot;{blog.description}"</p>
             <div className="flex items-center gap-2">
                 <p className="text-gray-800 mb-4 text-sm">{blog.author}</p>
                 <p className="text-gray-800 mb-4 text-sm">{blog.date}</p>
             </div>
             <div className="content" dangerouslySetInnerHTML={{ __html: htmlContent }} className="prose dark:prose-invert" >
-                {/* <OnThisPage htmlContent={htmlContent} /> */}
             </div>
+            <OnThisPage htmlContent={htmlContent} />
         </div>
     )
 }

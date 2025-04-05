@@ -1,29 +1,51 @@
+
+"use client";
+import Typed from "typed.js";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import React from "react";
 
 export default function Home() {
+
+  const el = React.useRef(null);
+  React.useEffect(() => {
+
+    const typed = new Typed(el.current, {
+      strings: ['Coding', 'Web Development', 'Software Engineering', 'Data Science', 'Machine Learning', 'Artificial Intelligence'],
+      typeSpeed: 50,
+    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+
+
   return (
     <div className="">
       <section className="container px-4 py-10 mx-auto flex flex-col md:flex-row lg:h-128 lg:space-x-8 lg:items-center max-sm:mb-6">
-        <div className="w-full text-center lg:text-left lg:w-1/2 lg:-mt-8 max-sm:mb-8">
+        <div className="w-full text-center lg:text-left lg:w-1/2 lg:-mt-8 max-sm:pb-20">
           <h1 className="text-3xl leading-snug text-gray-800 dark:text-gray-200 md:text-4xl">
             A <span className="font-semibold">free repository</span> for community
-            <br className="hidden lg:block" /> components using <span className="font-semibold underline decoration-primary">Tailwind CSS</span>
+            <br className="hidden lg:block" /> components using <span className="font-semibold underline decoration-primary"><span ref={el} /></span>
           </h1>
           <p className="mt-4 text-lg text-gray-500 dark:text-gray-300">
             Open source Tailwind UI components and templates to
             <br className="hidden lg:block" /> bootstrap your new apps, projects or landing sites!
           </p>
-          <div className="mt-6 bg-transparent border rounded-lg dark:border-gray-700 lg:w-2/3 focus-within:border-primary focus-within:ring focus-within:ring-primary dark:focus-within:border-primary focus-within:ring-opacity-20">
+
+          {/* <div className="mt-6 bg-transparent border rounded-lg dark:border-gray-700 lg:w-2/3 focus-within:border-primary focus-within:ring focus-within:ring-primary dark:focus-within:border-primary focus-within:ring-opacity-20">
             <form action="https://www.creative-tim.com/twcomponents/search" className="flex flex-col w-full md:flex-row">
               <input type="search" name="query" placeholder="Search Components" required className="flex-1 h-10 px-4 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none lg:h-12 dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0 max-sm:pt-2 outline-none" />
               <button type="submit" className="flex items-center justify-center  p-2 m-1 text-white transition-colors duration-300 transform rounded-lg md:w-10 md:h-10 lg:w-12 lg:h-12 lg:p-0 bg-[rgb(96,40,255)] hover:bg-[rgb(96,40,255)]/70 focus:outline-none focus:bg-[rgb(96,40,255)]/70">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-8 h-8"> {/* Changed w-6 h-6 to w-8 h-8 for a squareish icon */}
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </button>
             </form>
-          </div>
+          </div> */}
+
         </div>
         <div className="w-full mt-4 lg:mt-0 lg:w-1/2">
           <img src="https://www.creative-tim.com/twcomponents/svg/website-designer-bro-purple.svg" alt="Tailwind CSS components" className="w-full h-full max-w-md mx-auto" />

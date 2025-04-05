@@ -39,7 +39,7 @@ Now that your environment is set up, let’s start with the basics. In this sect
 
 ### Variables and Data Types
 
-```cpp
+```cpp showLineNumbers {4-6,8} /return/
 #include <iostream>
 
 int main() {
@@ -54,7 +54,7 @@ int main() {
 
 ### Control Structures
 
-```cpp
+```cpp showLineNumbers
 #include <iostream>
 
 int main() {
